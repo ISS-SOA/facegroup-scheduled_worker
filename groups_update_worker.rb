@@ -1,4 +1,10 @@
 require 'http'
+require 'yaml'
+
+puts "CONFIG_FILE: #{ENV['CONFIG_FILE']}"
+
+config = YAML.load(File.read(ENV['CONFIG_FILE']))
+puts "AWS_REGION: #{config['AWS_REGION']}"
 
 res = HTTP.get('https://facegroup-api.herokuapp.com')
 
